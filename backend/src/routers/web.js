@@ -1,21 +1,15 @@
 import expres from 'express';
-import UserController from '../controllers/UserController.js';
-
+import multer from 'multer';
 const webRouter = expres.Router();
-const userInstance = new UserController();
+import userRouter from './userRoute.js';
+
 
 webRouter.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-/*
-==============Start User Routers=========
-*/
-webRouter.post('/register',userInstance.store);
 
-/*
-==============End User Routers=========
-*/
+webRouter.use('/user', userRouter);
 
 
 

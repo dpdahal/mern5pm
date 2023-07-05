@@ -8,10 +8,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(webRouter);
+// public folder
+app.use(express.static('public'));
 
 // Connect to MongoDB
 connectDB();
+
+app.use(webRouter);
+
 
 const port = process.env.PORT || 3000;
 const server = process.env.APP_URL || 'localhost';

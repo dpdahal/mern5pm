@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -40,5 +43,15 @@ userSchema.pre('save',function(next){
     this.password = bcrypt.hashSync(this.password,10);
     next();
 });
+
+userSchema.methods.toJSON = function(){
+    let obj = this.toObject();
+    if(obj.image){
+        obj.image = `${process.env.BASE_URL}/users/${obj.image}`;
+
+    }
+    delete obj.password;
+    return obj;
+}
 
 export default mongoose.model('User',userSchema);
