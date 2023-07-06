@@ -8,11 +8,7 @@ webRouter.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-
 webRouter.use('/user', userRouter);
-
-
-
 
 export default webRouter;
 

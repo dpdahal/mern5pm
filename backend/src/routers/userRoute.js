@@ -11,7 +11,7 @@ const upload = fInstance.fileUpload('/users');
 userRouter.get('/', userInstance.index );
 userRouter.post('/',upload.single('image'), userInstance.store);
 userRouter.get('/:id', userInstance.show);
-userRouter.put('/:id', userInstance.update);
+userRouter.put('/:id',upload.single('image'), userInstance.update);
 userRouter.delete('/:id', userInstance.destroy);
 
 

@@ -9,6 +9,7 @@ class FileUploads{
             },
             filename: function (req, file, cb) {
                 let fileName = file.originalname.trim();
+                fileName = fileName.replace(/ /g, '-');            
                 let imageName = Date.now() + '-' + Math.round(Math.random() * 1E9) + "-" + fileName;
                 cb(null, imageName)
             }
