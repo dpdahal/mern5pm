@@ -53,6 +53,7 @@ class UserController {
           }
          image = req.file.filename;
       }
+      console.log(req.body)
       await user.updateOne({...req.body, image});
       return res.json(user);
     }catch(err){
