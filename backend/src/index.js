@@ -3,12 +3,15 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import webRouter from './routers/web.js';
 import connectDB from './config/database.js';
+import Seeder from "./seeder/index.js";
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+
+Seeder();
 
 // public folder
 app.use(express.static('public'));
