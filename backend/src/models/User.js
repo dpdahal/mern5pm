@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
+import jwt from "jsonwebtoken";
 
 dotenv.config();
 
@@ -54,4 +55,14 @@ userSchema.methods.toJSON = function(){
     return obj;
 }
 
+userSchema.methods.checkPassword = function(password){
+    return bcrypt.compareSync(password,this.password);
+}
+
+userSchema.methods.generateToken = function(){
+    return jwt.sign(
+        {id:this._id},
+        process.env.JWT_SECRET,
+        {expiresIn:process.env.JWT_EXPIRE});
+}
 export default mongoose.model('User',userSchema);
