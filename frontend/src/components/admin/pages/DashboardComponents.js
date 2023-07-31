@@ -4,10 +4,10 @@ import AsideBar from "../layouts/AsideBar";
 function DashboardComponents() {
     return (
         <div>
-            <TopHeader/>
+            <TopHeader />
                 <div className="container-fluid">
                     <div className="row">
-                        <AsideBar/>
+                        <AsideBar username={'admin'}/>
                         <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                             <h1>Dashboard</h1>
                              </main>

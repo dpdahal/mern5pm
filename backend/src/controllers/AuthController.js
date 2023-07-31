@@ -1,4 +1,5 @@
 import User from '../models/User.js';
+import Auth from '../middleware/Auth.js';
 
 class AuthController {
 
@@ -16,6 +17,16 @@ class AuthController {
 
         } else {
             res.status(200).json({message: 'User not found'});
+        }
+    }
+
+    async checkToken(req, res) {
+        let token = req.headers.authorization;
+        let user = await Auth.check(token);
+        if (user) {
+            res.status(200).json({isLogin: true});
+        } else {
+            res.status(200).json({isLogin: false});
         }
     }
 

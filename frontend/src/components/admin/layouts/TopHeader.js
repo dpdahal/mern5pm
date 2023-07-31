@@ -1,4 +1,4 @@
-function TopHeader() {
+function TopHeader(props) {
     return (
         <>
             <header className="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">

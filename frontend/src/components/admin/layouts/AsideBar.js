@@ -1,6 +1,8 @@
 import {Link} from "react-router-dom";
 
-function AsideBar() {
+function AsideBar(props) {
+    let username = props.username;
+
 
     const logout = () => {
         localStorage.clear()
@@ -17,6 +19,7 @@ function AsideBar() {
                                 data-bs-target="#sidebarMenu" aria-label="Close"/>
                     </div>
                     <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                        <h1>{username}</h1>
                         <ul className="nav flex-column">
                             <li className="nav-item">
                                 <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2 active"
