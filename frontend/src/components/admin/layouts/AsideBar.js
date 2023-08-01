@@ -1,7 +1,10 @@
 import {Link} from "react-router-dom";
+import {useContext} from "react";
+import {UserContext} from "../../../App";
+function AsideBar() {
+    const user = useContext(UserContext);
+    if(!user) return (<><h1>Loading....</h1></>)
 
-function AsideBar(props) {
-    let username = props.username;
 
 
     const logout = () => {
@@ -19,7 +22,7 @@ function AsideBar(props) {
                                 data-bs-target="#sidebarMenu" aria-label="Close"/>
                     </div>
                     <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
-                        <h1>{username}</h1>
+                        <h1>{user && user.name}</h1>
                         <ul className="nav flex-column">
                             <li className="nav-item">
                                 <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2 active"
@@ -32,37 +35,24 @@ function AsideBar(props) {
                                 <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2 active"
                                       aria-current="page">
                                     <i className="bi bi-airplane-engines-fill"></i>
-                                    Dashboard
+                                    Manage Users
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2 active"
                                       aria-current="page">
                                     <i className="bi bi-airplane-engines-fill"></i>
-                                    Dashboard
+                                    Manage Category
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2 active"
                                       aria-current="page">
                                     <i className="bi bi-airplane-engines-fill"></i>
-                                    Dashboard
+                                    Manage News
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2 active"
-                                      aria-current="page">
-                                    <i className="bi bi-airplane-engines-fill"></i>
-                                    Dashboard
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2 active"
-                                      aria-current="page">
-                                    <i className="bi bi-airplane-engines-fill"></i>
-                                    Dashboard
-                                </Link>
-                            </li>
+
 
                         </ul>
                         <button className="btn btn-danger"

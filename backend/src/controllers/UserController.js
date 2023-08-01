@@ -19,8 +19,8 @@ class UserController {
       if(req.file){
         image = req.file.filename;
       }
-      const user = await User.create({...req.body, image});  
-      return res.json(user);
+      await User.create({...req.body, image});
+      return res.json({message: true});
     }catch(err){
       console.log(err);
     }

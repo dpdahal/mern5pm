@@ -13,6 +13,8 @@ function RouteMiddleware() {
             if (response.data.isLogin === false) {
                 localStorage.removeItem('token');
                 window.location.href = '/login';
+            }else{
+                localStorage.setItem('userId',response.data.user.id)
             }
         }).catch((error) => {
             console.log(error.response.data);
