@@ -4,7 +4,7 @@ class CategoryController{
 
     async index(req,res){
         try {
-            const categories = await Category.find({});
+            const categories = await Category.find({}).populate('userId');
             res.status(200).json(categories);
         } catch (error) {
             res.status(500).json(error);

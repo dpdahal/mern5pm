@@ -10,7 +10,7 @@ class AuthController {
             let password = req.body.password;
             if (user.checkPassword(password)) {
                 let token = user.generateToken();
-                res.status(200).json({message: 'Login success', token: token});
+                res.status(200).json({message: 'Login success', token: token,userId:user.id});
             } else {
                 res.status(200).json({message: 'Password not match'});
             }

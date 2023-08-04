@@ -31,27 +31,30 @@ function AsideBar() {
                                     Dashboard
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2 active"
-                                      aria-current="page">
-                                    <i className="bi bi-airplane-engines-fill"></i>
-                                    Manage Users
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2 active"
-                                      aria-current="page">
-                                    <i className="bi bi-airplane-engines-fill"></i>
-                                    Manage Category
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2 active"
-                                      aria-current="page">
-                                    <i className="bi bi-airplane-engines-fill"></i>
-                                    Manage News
-                                </Link>
-                            </li>
+
+                            {user && user.role === 'admin' ? <div>
+                                <li className="nav-item">
+                                    <Link to="/manage-users" className="nav-link d-flex align-items-center gap-2 active"
+                                          aria-current="page">
+                                        <i className="bi bi-airplane-engines-fill"></i>
+                                        Manage Users
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to="/manage-category" className="nav-link d-flex align-items-center gap-2 active"
+                                          aria-current="page">
+                                        <i className="bi bi-airplane-engines-fill"></i>
+                                        Manage Category
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2 active"
+                                          aria-current="page">
+                                        <i className="bi bi-airplane-engines-fill"></i>
+                                        Manage News
+                                    </Link>
+                                </li>
+                            </div> : <></>}
 
 
                         </ul>

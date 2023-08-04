@@ -15,6 +15,7 @@ function LoginComponents() {
             await api.post('login', sendData).then(res => {
                 if (res.data.token) {
                     localStorage.setItem('token', res.data.token)
+                    localStorage.setItem('userId', res.data.userId)
                     window.location.href = '/dashboard'
                 } else {
                     alert(res.data.message)
