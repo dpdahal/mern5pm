@@ -48,7 +48,7 @@ function AsideBar() {
                                     </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2 active"
+                                    <Link to="/add-news" className="nav-link d-flex align-items-center gap-2 active"
                                           aria-current="page">
                                         <i className="bi bi-airplane-engines-fill"></i>
                                         Manage News

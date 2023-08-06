@@ -1,4 +1,6 @@
 import News from "../models/News.js";
+import dotenv from 'dotenv';
+dotenv.config();
 
 class NewsController{
 
@@ -23,8 +25,17 @@ class NewsController{
         //                 as:'user'
         //             },           
         // }]);
+
+      let nnews =  news.map((item,index) => {
+            if(item.image){
+               return item.image = `${process.env.BASE_URL}/news/${item.image}`;
+        
+            }
+            return item;
+
+        });    
      
-            return res.json(news);
+        return res.json(news);
         }catch(err){
             console.log(err);
         }
@@ -44,6 +55,16 @@ class NewsController{
     }
 
     async show(req,res){
+        try{
+            const news = await News.findById(req.params.id).populate('categoryId').populate('userId');
+            if(news.image){
+                 news.image = `${process.env.BASE_URL}/news/${news.image}`;
+         
+             }
+            return res.json(news);
+        }catch(err){
+            console.log(err);
+        }
 
     }
 

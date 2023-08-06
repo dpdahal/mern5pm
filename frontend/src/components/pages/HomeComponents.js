@@ -20,14 +20,13 @@ export default function HomeComponents() {
         getNews()
     }, [])
 
-    console.log(news)
     return (
         <div className='container'>
             <HeaderComponents />
             <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src="" className="d-block w-100" alt="..." />
+                    <img src="" className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
                     </div>
@@ -47,7 +46,7 @@ export default function HomeComponents() {
                                     <p className="card-text">{item.description}</p>
                                     <div className="d-flex justify-content-between align-items-center">
                                         <div className="btn-group">
-                                            <Link to={`/news/${item.id}`} className="btn btn-sm btn-outline-secondary">View</Link>
+                                            <Link to={`/news/${item._id}`} className="btn btn-sm btn-outline-secondary">View</Link>
                                             <button type="button" className="btn btn-sm btn-outline-secondary">Edit</button>
 
                                         </div>

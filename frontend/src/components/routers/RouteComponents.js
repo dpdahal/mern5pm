@@ -9,6 +9,8 @@ import RegisterComponents from "../pages/auth/RegisterComponents";
 import CategoryComponents from "../admin/pages/CategoryComponents";
 import RoleMiddleware from "../middleware/RoleMiddleware";
 import UsersComponents from "../admin/pages/UsersComponents";
+import AddNewsComponents from '../admin/pages/AddNewsComponents';
+import NewsDetailsComponents from '../pages/NewsDetailsComponents';
 
 export default function RouteComponents() {
     return (
@@ -17,11 +19,15 @@ export default function RouteComponents() {
                 <Route path="/" element={<HomeComponents/>}/>
                 <Route path="/login" element={<LoginComponents/>}/>
                 <Route path="/register" element={<RegisterComponents/>}/>
+                <Route path="/news/:id" element={<NewsDetailsComponents/>}/>
                 <Route element={<RouteMiddleware/>}>
                     <Route path="/dashboard" element={<DashboardComponents/>}/>
                     <Route element={<RoleMiddleware/>}>
                         <Route path="/manage-users" element={<UsersComponents/>}/>
                         <Route path="/manage-category" element={<CategoryComponents/>}/>
+                        <Route path="/add-news" element={<AddNewsComponents/>}/>
+
+
                     </Route>
 
                 </Route>
